@@ -5,11 +5,12 @@
         <img src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200"
              alt="gravatar" title="{{ .Site.Author.name }}">
       {{ end }}
-      <h1>{{ .Site.Author.name }}</h1>
+      <a href="/"><h1>{{ .Site.Author.name }}</h1></a>
       {{ with .Site.Params.tagline }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
     </div>
 
     <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="{{ .Site.Params.mainURL | absURL }}">Home</a></li>
       <li class="sidebar-nav-item"><a href="{{ "/" | absURL }}">{{ if isset .Site.Params "home"}}{{ .Site.Params.home }}{{ else }}Blog{{ end }}</a></li>
       {{ range .Site.Menus.main }}
       <li class="sidebar-nav-item">{{ .Pre }}<a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
@@ -45,7 +46,8 @@
     </script></p>
     {{ end }}
 
-    <p>Copyright &copy; {{ .Now.Format "2006" }} <a href="{{ "/license/" | absURL }}">License</a><br/>
-       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+
+      <p>&copy; {{ .Now.Format "2006" }}<a style="width:40px;" rel="license" href="http://creativecommons.org/licenses/by/4.0/"> <img alt="Creative Commons License" style="border-width:0; " src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+       <p>Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
 </div>
